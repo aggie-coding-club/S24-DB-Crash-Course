@@ -49,7 +49,7 @@ printRows()
 '''
 
 # Jad had a birthday, let's update his age:
-conn.execute("UPDATE mytable SET age = ? WHERE name = ?", (36, 'Jad')) # ALWAYS use the pkey ID for this instead of the name, this is just an example
+conn.execute("UPDATE mytable SET age = ? WHERE name = ?", (36, 'Jad')) # Can you spot what's wrong here? ALWAYS use the pkey ID for this instead of the name
 print("--------- After updating Jad's age: ---------")
 printRows()
 
@@ -63,7 +63,6 @@ printRows()
 
 # What would be a better way of updating his age?
 cursor = conn.execute("SELECT age FROM mytable WHERE id = ?", (2,))
-# cursor = conn.execute("UPDATE mytable set age WHERE id = ?", (2,))
 jadAge = cursor.fetchone() # Dereference the cursor object, without fetchone() we see: Jad age = <sqlite3.Cursor object at 0x0000027C0F1CF640>
 # jadAge is now this tuple: (36,)
 # print("Jad age =", jadAge[0]) # Use print statements to verify
@@ -80,8 +79,13 @@ printRows()
 (4, 'Andrew M', 10)
 '''
 
-# Ofc, there is an even better way to do this:
-# TODO
+# Of course, there is an even better way to do this. This is an exercise that I leave to the reader...jk here it is using SET:
+conn.execute("UPDATE mytable SET age = age + 1 WHERE id = ?", (2,))
+print("--------- After updating Jad's age for the third and final time: ---------")
+printRows()
+
+# Jad is now 3 years older if you run all three of these examples :P
+
 
 # Problem statement: I am trying to compile a list of people to invite to my party. The venue only supports people who are 18+ years old. Let's have our database support this restriction:
 
@@ -94,4 +98,4 @@ printRows()
 conn.commit()
 conn.close()
 
-# Congrats, you now understand the basics of SQL :D
+# Congrats, you now understand the basics of SQLite :D
