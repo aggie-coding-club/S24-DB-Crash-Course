@@ -33,9 +33,8 @@ conn.execute('')
 # TODO: Jad had a birthday, increase his age by 1
 conn.execute('')
 
-# Delete data from the table, remove anyone under the age of 18 to adhere to party restrictions (Hint: '... age < ?')
+# TODO: Delete data from the table, remove anyone under the age of 18 to adhere to party restrictions (Hint: '... age < ?')
 conn.execute('')
-
 
 
 # Verify the final party list
