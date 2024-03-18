@@ -7,7 +7,7 @@ conn = sqlite3.connect('partyinvitestmpl.db')
 # Problem statement: I am trying to compile a list of people to invite to my party. The venue only supports people who are 18+ years old. Create a DB table with a list of all names and ages of people that will come
 
 
-# Create a new table with the columns: id, name, age
+# TODO: Create a new table called mytable with the columns: id, name, age
 conn.execute('')
 
 # Insert into the table some data
@@ -27,12 +27,13 @@ def printRows():
 print("--------- After inserting names: ---------")
 printRows()
 
-# Update some data to make it more readable and easily understood
+# TODO: Update some data to make it more readable and easily understood, change Andrew at ID 4's name to 'Andrew M'
 conn.execute('')
 
+# TODO: Jad had a birthday, increase his age by 1
+conn.execute('')
 
-
-# Delete data from the table
+# Delete data from the table, remove anyone under the age of 18 to adhere to party restrictions (Hint: '... age < ?')
 conn.execute('')
 
 
